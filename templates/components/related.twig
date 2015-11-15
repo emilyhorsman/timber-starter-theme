@@ -2,10 +2,16 @@
   <div class="row">
     {% for post in related %}
     <div class="col-md-{{ columns(related|length) }}">
-      <div class="card card-block">
-        <h3 class="card-title"><a href="{{ post.get_link }}">{{ post.title }}</a></h3>
-        <p class="card-text">{{ post.get_preview(20, false, false) }}</p>
-        <a href="{{ post.get_link }}" class="btn btn-primary">Read More</a>
+      <div class="card">
+        {% if post.thumbnail %}
+        <img class="card-img-top" src="{{ post.thumbnail.src }}">
+        {% endif %}
+
+        <div class="card-block">
+          <h3 class="card-title"><a href="{{ post.get_link }}">{{ post.title }}</a></h3>
+          <p class="card-text">{{ post.get_preview(20, false, false) }}</p>
+          <a href="{{ post.get_link }}" class="btn btn-primary">Read More</a>
+        </div>
       </div>
     </div>
     {% endfor %}

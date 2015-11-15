@@ -49,3 +49,8 @@
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/utilities-spacing";
 @import "bootstrap/scss/utilities-responsive";
+
+.article-body img,
+.card-img-top {
+  max-width: 100%;
+}

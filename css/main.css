@@ -4543,3 +4543,7 @@ a.bg-danger:focus, a.bg-danger:hover {
 @media print {
   .hidden-print .hidden-print {
     display: none !important; } }
+
+.article-body img,
+.card-img-top {
+  max-width: 100%; }
