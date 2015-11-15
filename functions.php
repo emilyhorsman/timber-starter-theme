@@ -23,12 +23,18 @@ class StarterSite extends TimberSite {
     add_action( 'init', array( $this, 'register_taxonomies' ) );
     add_action( 'init', array( $this, 'register_menus' ) );
 
+    add_action('wp_enqueue_scripts', array($this, 'scripts'));
+
     add_action('widgets_init', array($this, 'widget_locations_init'));
     add_action('widgets_init', function() {
       register_widget('NavbarSearchWidget');
     });
 
     parent::__construct();
+  }
+
+  function scripts() {
+    wp_enqueue_script('jquery');
   }
 
   function widget_locations_init() {

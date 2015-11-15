@@ -4549,3 +4549,25 @@ a.bg-danger:focus, a.bg-danger:hover {
 
 .border-bottom {
   border-bottom: 1px solid #eceeef; }
+
+.navbar-brand,
+.navbar-nav .nav-item {
+  float: none; }
+
+.navbar-divider,
+.navbar-nav .nav-item + .nav-item,
+.navbar-nav .nav-link + .nav-link {
+  margin-left: 0; }
+
+@media (min-width: 48em) {
+  .navbar-brand,
+  .navbar-nav .nav-item {
+    float: left; }
+  .navbar-divider,
+  .navbar-nav .nav-item + .nav-item,
+  .navbar-nav .nav-link + .nav-link {
+    margin-left: 1rem; } }
+
+@media (max-width: 48em) {
+  .form-inline {
+    display: none; } }
