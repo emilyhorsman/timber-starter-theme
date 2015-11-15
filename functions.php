@@ -19,6 +19,7 @@ class StarterSite extends TimberSite {
     add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
     add_action( 'init', array( $this, 'register_post_types' ) );
     add_action( 'init', array( $this, 'register_taxonomies' ) );
+    add_action( 'init', array( $this, 'register_menus' ) );
 
     add_action('widgets_init', array($this, 'sidebar_widgets_init'));
 
@@ -39,8 +40,12 @@ class StarterSite extends TimberSite {
   function register_post_types() { }
   function register_taxonomies() { }
 
+  function register_menus() {
+    register_nav_menu('main-nav-bar', __('Main Navbar'));
+  }
+
   function add_to_context( $context ) {
-    $context['menu'] = new TimberMenu();
+    $context['nav_bar'] = new TimberMenu('main-nav-bar');
     $context['site'] = $this;
     $context['sidebar'] = Timber::get_widgets('site_sidebar');
     return $context;
