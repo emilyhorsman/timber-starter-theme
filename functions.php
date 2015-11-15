@@ -68,7 +68,12 @@ class StarterSite extends TimberSite {
 
   function add_to_twig( $twig ) {
     $twig->addExtension( new Twig_Extension_StringLoader() );
+    $twig->addFunction( new Twig_SimpleFunction('columns', array($this, 'columns')));
     return $twig;
+  }
+
+  function columns($n) {
+    return 12 / $n;
   }
 
 }

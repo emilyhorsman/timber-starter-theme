@@ -26,3 +26,9 @@
 		</article>
 	</div><!-- /content-wrapper -->
 {% endblock %}
+
+{% block bottom %}
+{% if related %}
+{% include "components/related.twig" %}
+{% endif %}
+{% endblock %}

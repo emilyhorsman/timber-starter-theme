@@ -12,7 +12,25 @@
 $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
-$context['comment_form'] = TimberHelper::get_comment_form();
+
+$categories = array_map(function($category) {
+  return $category->ID;
+}, $post->get_terms('category'));
+
+if (count($categories) > 0) {
+  $args = array(
+    'post_type'   => 'post',
+    'numberposts' => 3,
+    'tax_query'   => array(
+      'taxonomy'  => 'category',
+      'field'     => 'id',
+      'terms'     => $categories,
+      'operator'  => 'IN',
+    ),
+  );
+
+  $context['related'] = Timber::get_posts($args);
+}
 
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
