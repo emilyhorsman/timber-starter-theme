@@ -40,6 +40,7 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-$data['posts'] = Timber::get_posts();
+$data['posts']      = Timber::get_posts();
+$data['pagination'] = Timber::get_pagination();
 
 Timber::render( $templates, $data );
