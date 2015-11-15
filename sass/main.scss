@@ -50,7 +50,10 @@
 @import "bootstrap/scss/utilities-spacing";
 @import "bootstrap/scss/utilities-responsive";
 
-.article-body img,
-.card-img-top {
+.container img {
   max-width: 100%;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $gray-lighter;
 }
