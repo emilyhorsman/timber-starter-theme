@@ -21,12 +21,12 @@ class StarterSite extends TimberSite {
     add_action( 'init', array( $this, 'register_taxonomies' ) );
     add_action( 'init', array( $this, 'register_menus' ) );
 
-    add_action('widgets_init', array($this, 'sidebar_widgets_init'));
+    add_action('widgets_init', array($this, 'widget_locations_init'));
 
     parent::__construct();
   }
 
-  function sidebar_widgets_init() {
+  function widget_locations_init() {
     register_sidebar(array(
       'name'          => 'Site Sidebar',
       'id'            => 'site_sidebar',
@@ -34,6 +34,15 @@ class StarterSite extends TimberSite {
       'after_widget'  => '</div>',
       'before_title'  => '<div class="site-sidebar-widget-title">',
       'after_title'   => '</div>',
+    ));
+
+    register_sidebar(array(
+      'name'          => 'Site Nav',
+      'id'            => 'site_nav_widgets',
+      'before_widget' => '',
+      'after_widget'  => '',
+      'before_title'  => '',
+      'after_title'   => '',
     ));
   }
 
@@ -45,9 +54,10 @@ class StarterSite extends TimberSite {
   }
 
   function add_to_context( $context ) {
-    $context['nav_bar'] = new TimberMenu('main-nav-bar');
-    $context['site'] = $this;
-    $context['sidebar'] = Timber::get_widgets('site_sidebar');
+    $context['site']        = $this;
+    $context['nav_bar']     = new TimberMenu('main-nav-bar');
+    $context['nav_widgets'] = Timber::get_widgets('site_nav_widgets');
+    $context['sidebar']     = Timber::get_widgets('site_sidebar');
     return $context;
   }
 
