@@ -1,2 +1,4 @@
 vendor
 wp-content
+bower_components
+node_modules
