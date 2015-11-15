@@ -19,13 +19,14 @@ $categories = array_map(function($category) {
 
 if (count($categories) > 0) {
   $args = array(
-    'post_type'   => 'post',
-    'numberposts' => 3,
-    'tax_query'   => array(
-      'taxonomy'  => 'category',
-      'field'     => 'id',
-      'terms'     => $categories,
-      'operator'  => 'IN',
+    'post_type'    => 'post',
+    'numberposts'  => 3,
+    'post__not_in' => array($post->ID),
+    'tax_query'    => array(
+      'taxonomy'   => 'category',
+      'field'      => 'id',
+      'terms'      => $categories,
+      'operator'   => 'IN',
     ),
   );
 
