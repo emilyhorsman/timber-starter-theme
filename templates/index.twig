@@ -1,5 +1,16 @@
 {% extends "base.twig" %}
 
+{% block top %}
+{% if category %}
+<div class="jumbotron">
+  <div class="container">
+    <h2>{{ category.title }}</h2>
+    <p>{{ category.description }}</p>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 	{% for post in posts %}
 		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
