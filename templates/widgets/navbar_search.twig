@@ -1,0 +1,5 @@
+<form action="/" method="get" class="form-inline navbar-form pull-right">
+  <label for="search" class="sr-only">Search in {{ site.get_link }}</label>
+  <input class="form-control" placeholder="Search&hellip;" type="text" name="s" value="{{ fn('the_search_query') }}" />
+  <button class="btn btn-success-outline" type="submit">Search</button>
+</form>
