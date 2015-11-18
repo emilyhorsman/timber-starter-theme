@@ -4,7 +4,7 @@
     <div class="col-md-{{ columns(related|length) }}">
       <div class="card">
         {% if post.thumbnail %}
-        <img class="card-img-top" src="{{ post.thumbnail.src }}">
+        <div class="card-img-top -background-image" style="background-image: url('{{ post.thumbnail.src }}');"></div>
         {% endif %}
 
         <div class="card-block">

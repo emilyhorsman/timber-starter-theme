@@ -4547,6 +4547,16 @@ a.bg-danger:focus, a.bg-danger:hover {
 .container img {
   max-width: 100%; }
 
+.-background-image {
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+          background-size: cover; }
+
+.card-img-top {
+  width: 100%;
+  height: 150px; }
+
 .border-bottom {
   border-bottom: 1px solid #eceeef; }
 
