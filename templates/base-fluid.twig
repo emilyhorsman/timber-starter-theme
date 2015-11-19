@@ -1,0 +1,37 @@
+{% extends "wrapper.twig" %}
+
+{% block body %}
+  {% block header %}
+  <header>
+    {% include "components/nav.twig" %}
+  </header>
+  {% endblock %}
+
+  {% block top %}
+  {% endblock %}
+
+  {% block layout %}
+  <main class="container-fluid m-t">
+    <div class="row">
+      <section class="col-md-8">
+      {% block content %}
+        Sorry, no content.
+      {% endblock %}
+      </section>
+
+      <aside class="sidebar col-md-4">
+      {% block sidebar %}
+        {% if sidebar %}
+          {{ sidebar }}
+        {% endif %}
+      {% endblock %}
+      </aside>
+    </div>
+  </main>
+  {% endblock %}
+
+  {% block bottom %}
+  {% endblock %}
+
+  {{ fn('wp_footer') }}
+{% endblock %}
