@@ -9,14 +9,14 @@
           <span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.post_date|date}}
         </p>
 
-        {% set categories = post.categories %}
-        {% if categories %}
-        {% include "components/terms.twig" with { "terms": categories, "label": "Categories" } %}
+        {% set terms = post.categories %}
+        {% if terms %}
+        {% include "components/terms.twig" with { "label": "Categories" } %}
         {% endif %}
 
-        {% set tags = post.tags %}
-        {% if tags %}
-        {% include "components/terms.twig" with { "terms": tags, "label": "Tags" } %}
+        {% set terms = post.tags %}
+        {% if terms %}
+        {% include "components/terms.twig" with { "label": "Tags" } %}
         {% endif %}
 
         <div class="article-body">
