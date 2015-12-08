@@ -20,24 +20,24 @@ $data = Timber::get_context();
 
 $data['title'] = 'Archive';
 if ( is_day() ) {
-	$data['title'] = 'Archive: '.get_the_date( 'D M Y' );
+  $data['title'] = 'Archive: '.get_the_date( 'D M Y' );
 } else if ( is_month() ) {
-	$data['title'] = 'Archive: '.get_the_date( 'M Y' );
+  $data['title'] = 'Archive: '.get_the_date( 'M Y' );
 } else if ( is_year() ) {
-	$data['title'] = 'Archive: '.get_the_date( 'Y' );
+  $data['title'] = 'Archive: '.get_the_date( 'Y' );
 } else if ( is_tag() ) {
-	$data['title'] = single_tag_title( '', false );
+  $data['title'] = single_tag_title( '', false );
 } else if ( is_category() ) {
 
   $cat = get_query_var('cat');
-	$data['title'] = single_cat_title( '', false );
+  $data['title'] = single_cat_title( '', false );
   $data['category'] = new TimberTerm($cat);
 
-	array_unshift( $templates, 'archive-' . $cat . '.twig' );
+  array_unshift( $templates, 'archive-' . $cat . '.twig' );
 
 } else if ( is_post_type_archive() ) {
-	$data['title'] = post_type_archive_title( '', false );
-	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+  $data['title'] = post_type_archive_title( '', false );
+  array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
 $data['posts']      = Timber::get_posts();

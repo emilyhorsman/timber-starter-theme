@@ -12,9 +12,9 @@
 {% endblock %}
 
 {% block content %}
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
+  {% for post in posts %}
+    {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+  {% endfor %}
 
   {% if pagination %}
   {% include "components/pagination.twig" %}
